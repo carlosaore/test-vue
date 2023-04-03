@@ -60,6 +60,7 @@ const addTodo = (e) => {
 </script>
 
 <template>
+    <hr/>
     <section>
         <h2>Counter</h2>
         <p>RefCounter: {{ refCounter }}</p>
@@ -75,10 +76,10 @@ const addTodo = (e) => {
         <h2>Todo list</h2>
         <ol>
             <li v-for="todo in todos" :key="todo.id">
-                <input type="checkbox" :id="todo.id" v-model="todo.completed">
+                <input :id="todo.id" v-model="todo.completed" type="checkbox">
                 <label
-                        :for="todo.id"
                         :class="{ checked: todo.completed }"
+                        :for="todo.id"
                 >
                     {{ todo.title }}
                 </label>
@@ -132,8 +133,8 @@ const addTodo = (e) => {
         <label>
             override visible
             <input
-                    type="checkbox"
                     v-model="visibleCheckbox"
+                    type="checkbox"
             />
         </label>
     </section>

@@ -1,8 +1,6 @@
 <script setup>
-import Todos from "@/components/Todos.vue";
-import Child from "@/components/Child.vue";
-import ChildWithDefaultProps from "@/components/ChildWithDefaultProps.vue";
-import EmitParent from "@/components/EmitParent.vue";
+import Header from "@/components/Header.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
@@ -11,11 +9,24 @@ import EmitParent from "@/components/EmitParent.vue";
     </div>
   </header>
   <main>
-      <Todos />
-      <Child />
-      <Child parentName="Papasote" />
-      <ChildWithDefaultProps text-to-display="I'm passing props"/>
-      <ChildWithDefaultProps />
-      <EmitParent />
+      <Header />
+      <router-view v-slot="{ Component }">
+          <transition name="page-opacity" mode="out-in">
+              <component :is="Component"></component>
+          </transition>
+      </router-view>
   </main>
 </template>
+
+<style scoped>
+  .page-opacity-enter-active,
+  .page-opacity-leave-active {
+    transition: 0.3s ease-in-out all;
+  }
+
+  .page-opacity-enter-from,
+  .page-opacity-leave-to {
+    opacity: 0;
+    translate: 50vw;
+  }
+</style>

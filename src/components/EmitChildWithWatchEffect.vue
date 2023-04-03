@@ -4,13 +4,13 @@ import {defineEmits, ref, watchEffect} from "vue";
 const text = ref("Hello");
 
 const resetText = () => {
-  text.value = "Hello";
+	text.value = "Hello";
 };
 
 const emit = defineEmits(["updateName"]);
 
 watchEffect(() => {
-  emit("updateName", text.value);
+	emit("updateName", text.value);
 });
 
 </script>
@@ -24,6 +24,6 @@ watchEffect(() => {
             This component contains a ref that is updated by an event emitted from a child component.
         </i>
     </p>
-    <input type="text" v-model="text">
+    <input v-model="text" type="text">
     <button type="button" @click="resetText">Reset</button>
 </template>

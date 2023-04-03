@@ -45,13 +45,13 @@ const changeAge = () => {
         <form>
             <label for="name">
                 Name
-                <input type="text" id="name" v-model="nameInput">
+                <input id="name" v-model="nameInput" type="text">
             </label>
             <button type="button" @click="changeName">Change Name</button>
             <br/>
             <label for="age">
                 Age
-                <input type="number" id="age" v-model="ageInput" step="1">
+                <input id="age" v-model="ageInput" step="1" type="number">
             </label>
             <button type="button" @click="changeAge">Change Age</button>
         </form>

@@ -1,7 +1,7 @@
 <script setup>
 
 defineProps({
-    type: String,
+	type: String,
 });
 
 const emit = defineEmits(["updateName", "resetNameWithArgs", "resetNameSansArgs"]);
@@ -23,8 +23,8 @@ emit("updateName", 'Emitted from EmitChild.vue');
         Also, you can emit from an event like this:
     </p>
     <button
-        type="button"
-        @click="emit('updateName', 'BOOOM!')"
+            type="button"
+            @click="emit('updateName', 'BOOOM!')"
     >
         Emit BOOOM!
     </button>
@@ -32,14 +32,14 @@ emit("updateName", 'Emitted from EmitChild.vue');
         Or like this:
     </p>
     <button
-        type="button"
-        @click="$emit('resetNameWithArgs', 'Name reset from emit args')"
+            type="button"
+            @click="$emit('resetNameWithArgs', 'Name reset from emit args')"
     >
-       Reset name with args
+        Reset name with args
     </button>
     <button
-        type="button"
-        @click="$emit('resetNameSansArgs')"
+            type="button"
+            @click="$emit('resetNameSansArgs')"
     >
         Reset name sans args
     </button>
